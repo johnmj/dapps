@@ -31,6 +31,12 @@ resource "aws_security_group" "security_group" {
     to_port = 22
     protocol = "tcp"
   }
+  lifecycle {
+    ignore_changes = [
+      egress,
+      ingress
+    ]
+  }
 }
 
 resource "aws_instance" "SGB-GH-Runner" {
