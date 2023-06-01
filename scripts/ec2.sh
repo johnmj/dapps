@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Inside ec2.sh script"
 cat <<EOF >/home/ubuntu/user-data.sh
 #!/bin/bash
 wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64

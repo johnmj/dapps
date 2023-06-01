@@ -44,7 +44,8 @@ resource "aws_instance" "SGB-GH-Runner" {
   vpc_security_group_ids = [aws_security_group.security_group.id]
   subnet_id              = "subnet-9eb5e0b4"
 
- user_data = templatefile("scripts/ec2.sh", {personal_access_token = var.personal_access_token})
+ #user_data = templatefile("scripts/ec2.sh", {personal_access_token = var.personal_access_token})
+ user_data = templatefile("${path.module}/scripts/ec2.sh", {personal_access_token = "${var.personal_access_token}")
 	tags = {
 		Name = "SGB-GitHub-Runner"	
 		Type = "terraform"
