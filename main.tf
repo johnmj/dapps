@@ -15,7 +15,7 @@ data "aws_ami" "ubuntu_server" {
 }
 
 resource "aws_security_group" "security_group" {
-  name = "sec_group_github_runner"
+  name = "sec_group_github_runner1"
 
   egress {
     from_port   = 0
@@ -30,12 +30,6 @@ resource "aws_security_group" "security_group" {
   from_port = 22
     to_port = 22
     protocol = "tcp"
-  }
-  lifecycle {
-    ignore_changes = [
-      egress,
-      ingress
-    ]
   }
 }
 
